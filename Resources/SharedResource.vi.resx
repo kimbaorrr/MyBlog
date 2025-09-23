@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="nav.home" xml:space="preserve">
+    <value>Trang chủ</value>
+  </data>
+  <data name="nav.project" xml:space="preserve">
+    <value>Dự án</value>
+  </data>
+  <data name="nav.tool" xml:space="preserve">
+    <value>Tiện ích</value>
+  </data>
+  <data name="nav.cv" xml:space="preserve">
+    <value>Lý lịch</value>
+  </data>
+  <data name="nav.contact" xml:space="preserve">
+    <value>Liên hệ</value>
+  </data>
+  <data name="home_body.hi" xml:space="preserve">
+    <value>Xin chào !</value>
+  </data>
+  <data name="home_body.favorite" xml:space="preserve">
+    <value>Sở thích</value>
+  </data>
+  <data name="home_body.link_list.projects" xml:space="preserve">
+    <value>Các dự án mình làm</value>
+  </data>
+  <data name="home_body.link_list.tools" xml:space="preserve">
+    <value>Các tiện ích mình làm</value>
+  </data>
+  <data name="home_body.link_list.cv" xml:space="preserve">
+    <value>Lý lịch của mình</value>
+  </data>
+  <data name="home_body.link_list.contact" xml:space="preserve">
+    <value>Thông tin liên hệ của mình</value>
+  </data>
+  <data name="home_body.thanks" xml:space="preserve">
+    <value>Cảm ơn bạn đã ghé thăm ! ❤️</value>
+  </data>
+  <data name="home_body.greeting.day" xml:space="preserve">
+    <value>🌻 Chào buổi sáng! Chúc bạn một ngày mới tràn đầy năng lượng!</value>
+  </data>
+  <data name="question.header" xml:space="preserve">
+    <value>Gửi câu hỏi của bạn</value>
+  </data>
+  <data name="question.close" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
+  <data name="question.body.name" xml:space="preserve">
+    <value>Tên của bạn</value>
+  </data>
+  <data name="question.body.email" xml:space="preserve">
+    <value>Địa chỉ email</value>
+  </data>
+  <data name="question.body.content" xml:space="preserve">
+    <value>Bạn muốn hỏi tôi điều gì ?</value>
+  </data>
+  <data name="question.body.content_placeholder" xml:space="preserve">
+    <value>Viết gì đó vào đây...</value>
+  </data>
+  <data name="question.body.send" xml:space="preserve">
+    <value>Gửi thông tin</value>
+  </data>
+  <data name="question.body.placeholder" xml:space="preserve">
+    <value>Viết gì đó vào đây...</value>
+  </data>
+  <data name="question.body.response.success" xml:space="preserve">
+    <value>Câu hỏi của bạn đã được ghi nhận !</value>
+  </data>
+  <data name="question.body.response.fail" xml:space="preserve">
+    <value>Lỗi khi gửi câu hỏi. Vui lòng thử lại !</value>
+  </data>
+  <data name="projects.title" xml:space="preserve">
+    <value>Dự án</value>
+  </data>
+  <data name="projects.description" xml:space="preserve">
+    <value>Danh sách các dự án mình đã &amp; đang làm</value>
+  </data>
+  <data name="projects.filter_by.all" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
+  <data name="projects.filter_by.in_progress" xml:space="preserve">
+    <value>Đang thực hiện</value>
+  </data>
+  <data name="projects.filter_by.done" xml:space="preserve">
+    <value>Đã hoàn thành</value>
+  </data>
+  <data name="projects.search_box.placeholder" xml:space="preserve">
+    <value>Tìm dự án...</value>
+  </data>
+  <data name="projects.card.try" xml:space="preserve">
+    <value>Thử nghiệm</value>
+  </data>
+  <data name="projects.card.technical.description" xml:space="preserve">
+    <value>Mô tả dự án</value>
+  </data>
+  <data name="projects.card.technical.dataset" xml:space="preserve">
+    <value>Tập dữ liệu</value>
+  </data>
+  <data name="projects.card.technical.lang" xml:space="preserve">
+    <value>Ngôn ngữ lập trình</value>
+  </data>
+  <data name="projects.card.technical.metrics" xml:space="preserve">
+    <value>Chỉ số đánh giá</value>
+  </data>
+  <data name="projects.card.technical.fe" xml:space="preserve">
+    <value>Giao diện người dùng</value>
+  </data>
+  <data name="projects.card.technical.be" xml:space="preserve">
+    <value>Xử lý phía máy chủ</value>
+  </data>
+  <data name="projects.card.technical.db" xml:space="preserve">
+    <value>Cơ sở dữ liệu</value>
+  </data>
+  <data name="projects.card.technical.inf_str" xml:space="preserve">
+    <value>Kiến trúc hệ thống</value>
+  </data>
+  <data name="projects.card.technical.arc" xml:space="preserve">
+    <value>Kiến trúc phần mềm</value>
+  </data>
+  <data name="projects.card.technical.lib" xml:space="preserve">
+    <value>Thư viện</value>
+  </data>
+  <data name="projects.card.technical.model" xml:space="preserve">
+    <value>Mô hình sử dụng</value>
+  </data>
+  <data name="projects.card.technical.framework" xml:space="preserve">
+    <value>Khung phát triển</value>
+  </data>
+  <data name="projects.card.technical.algo" xml:space="preserve">
+    <value>Thuật toán</value>
+  </data>
+  <data name="projects.card.technical.task_type" xml:space="preserve">
+    <value>Loại tác vụ</value>
+  </data>
+  <data name="projects.card.technical.scope" xml:space="preserve">
+    <value>Quy mô dự án</value>
+  </data>
+  <data name="projects.card.technical.role" xml:space="preserve">
+    <value>Vai trò trong nhóm</value>
+  </data>
+  <data name="projects.card.technical.code" xml:space="preserve">
+    <value>Mã nguồn</value>
+  </data>
+  <data name="tools.search_box.placeholder" xml:space="preserve">
+    <value>Tìm tiện ích...</value>
+  </data>
+  <data name="tools.labels.qr.title" xml:space="preserve">
+    <value>Tiêu đề</value>
+  </data>
+  <data name="tools.labels.qr.subtitle" xml:space="preserve">
+    <value>Tiêu đề con</value>
+  </data>
+  <data name="tools.labels.qr.color" xml:space="preserve">
+    <value>Màu sắc</value>
+  </data>
+  <data name="tools.labels.qr.image" xml:space="preserve">
+    <value>Chèn ảnh</value>
+  </data>
+  <data name="tools.labels.qr.placeholder" xml:space="preserve">
+    <value>Nhập nội dung để tạo QR...</value>
+  </data>
+  <data name="tools.labels.qr.download" xml:space="preserve">
+    <value>Tải về máy</value>
+  </data>
+  <data name="tools.labels.qr.character" xml:space="preserve">
+    <value>kí tự</value>
+  </data>
+  <data name="tools.labels.qr.wifi.show" xml:space="preserve">
+    <value>Tạo QR cho kết nối Wifi</value>
+  </data>
+  <data name="tools.labels.qr.wifi.ssid" xml:space="preserve">
+    <value>SSID</value>
+  </data>
+  <data name="tools.labels.qr.wifi.secure" xml:space="preserve">
+    <value>Kiểu bảo mật</value>
+  </data>
+  <data name="tools.labels.qr.wifi.pwd" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="tools.labels.qr.wifi.hidden" xml:space="preserve">
+    <value>Điểm truy cập ẩn</value>
+  </data>
+  <data name="tools.labels.base64.placeholder" xml:space="preserve">
+    <value>Nhập nội dung để mã hóa/giải mã...</value>
+  </data>
+  <data name="tools.labels.base64.encode" xml:space="preserve">
+    <value>Mã hóa</value>
+  </data>
+  <data name="tools.labels.base64.decode" xml:space="preserve">
+    <value>Giải mã</value>
+  </data>
+  <data name="tools.labels.base64.output" xml:space="preserve">
+    <value>Đầu ra</value>
+  </data>
+  <data name="tools.labels.pwdgen.type" xml:space="preserve">
+    <value>Chọn dạng mật khẩu</value>
+  </data>
+  <data name="tools.labels.pwdgen.customize" xml:space="preserve">
+    <value>Tùy chỉnh cho mật khẩu</value>
+  </data>
+  <data name="tools.labels.pwdgen.output" xml:space="preserve">
+    <value>Mật khẩu đã tạo</value>
+  </data>
+  <data name="tools.labels.pwdgen.copy" xml:space="preserve">
+    <value>Sao chép vào clipboard</value>
+  </data>
+  <data name="tools.labels.pwdgen.refresh" xml:space="preserve">
+    <value>Tạo lại mật khẩu</value>
+  </data>
+  <data name="tools.labels.pwdgen.autorefresh" xml:space="preserve">
+    <value>Tự động tạo</value>
+  </data>
+  <data name="tools.labels.pwdgen.copied" xml:space="preserve">
+    <value>Đã sao chép vào clipboard !</value>
+  </data>
+  <data name="tools.labels.img_pdf.convert" xml:space="preserve">
+    <value>Chuyển đổi</value>
+  </data>
+  <data name="tools.labels.img_pdf.clear" xml:space="preserve">
+    <value>Làm lại</value>
+  </data>
+  <data name="tools.labels.img_pdf.output.file_name" xml:space="preserve">
+    <value>Tên tệp PDF</value>
+  </data>
+  <data name="tools.labels.img_pdf.output.paper_size" xml:space="preserve">
+    <value>Khổ giấy</value>
+  </data>
+  <data name="tools.labels.img_pdf.output.orient" xml:space="preserve">
+    <value>Hướng giấy</value>
+  </data>
+  <data name="alert.title" xml:space="preserve">
+    <value>Ôi không...</value>
+  </data>
+  <data name="alert.description" xml:space="preserve">
+    <value>Hệ thống gặp sự cố. Xin vui lòng quay lại sau.!</value>
+  </data>
+  <data name="projects.card.technical.metrics.matrix" xml:space="preserve">
+    <value>Ma trận nhầm lẫn</value>
+  </data>
+  <data name="projects.card.technical.metrics.scalar" xml:space="preserve">
+    <value>Chỉ số định lượng</value>
+  </data>
+  <data name="projects.card.technical.scope.personal" xml:space="preserve">
+    <value>Cá nhân</value>
+  </data>
+  <data name="projects.card.technical.scope.team" xml:space="preserve">
+    <value>Nhóm</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tools.labels.img_pdf.output.orient.landscape" xml:space="preserve">
+    <value>Ngang</value>
+  </data>
+  <data name="tools.labels.img_pdf.output.orient.portrait" xml:space="preserve">
+    <value>Dọc</value>
+  </data>
+  <data name="footer.copyright" xml:space="preserve">
+    <value>Tất cả các quyền được bảo lưu</value>
+  </data>
+</root>

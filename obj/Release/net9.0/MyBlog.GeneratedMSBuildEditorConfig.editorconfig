@@ -1,0 +1,219 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v9.0
+build_property.RootNamespace = MyBlog
+build_property.RootNamespace = MyBlog
+build_property.ProjectDir = K:\ASP.NET\MyBlog\MyBlog\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = K:\ASP.NET\MyBlog\MyBlog
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Admin/AppData/Roaming/SonarLint for Visual Studio/.global/csharp/SonarLint.xml]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Areas/Admin/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Areas/Admin/Views/Home/TwoFA.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxUd29GQS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Areas/Admin/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/CV/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1ZcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Home/InfoCard/_BigAvatar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmZvQ2FyZFxfQmlnQXZhdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Home/InfoCard/_Brief.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmZvQ2FyZFxfQnJpZWYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Home/InfoCard/_ColorBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmZvQ2FyZFxfQ29sb3JCYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Home/InfoCard/_Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmZvQ2FyZFxfRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Home/InfoCard/_InfoCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmZvQ2FyZFxfSW5mb0NhcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Home/Intro/_BigHi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbnRyb1xfQmlnSGkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Home/Intro/_Intro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbnRyb1xfSW50cm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Home/Intro/_MainText.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbnRyb1xfTWFpblRleHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Home/Intro/_Navigator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbnRyb1xfTmF2aWdhdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Home/Intro/_SubText.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbnRyb1xfU3ViVGV4dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Home/Intro/_Thanks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbnRyb1xfVGhhbmtzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Home/_GreetingMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfR3JlZXRpbmdNZXNzYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Project/Card/_EyeViewer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxDYXJkXF9FeWVWaWV3ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Project/Card/_Ribbon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxDYXJkXF9SaWJib24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Project/Card/_SeeMoreIcon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxDYXJkXF9TZWVNb3JlSWNvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Project/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Project/_FilterButtons.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxfRmlsdGVyQnV0dG9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Project/_SearchBox.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxfU2VhcmNoQm94LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Project/_SelectedCardModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxfU2VsZWN0ZWRDYXJkTW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Shared/Components/ErrorPage/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRXJyb3JQYWdlXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Shared/Components/FeedbackModal/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRmVlZGJhY2tNb2RhbFxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Shared/Components/Footer/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9vdGVyXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Shared/Components/Footer/_BackToTop.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9vdGVyXF9CYWNrVG9Ub3AuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Shared/Components/Footer/_Copyright.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9vdGVyXF9Db3B5cmlnaHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Shared/Components/Footer/_IconLinks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9vdGVyXF9JY29uTGlua3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Shared/Components/LoadingSpinner/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTG9hZGluZ1NwaW5uZXJcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Shared/Components/NavBar/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmF2QmFyXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Tool/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9vbFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Tool/Partials/_ImgPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9vbFxQYXJ0aWFsc1xfSW1nUGRmLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Tool/Partials/_NatoGen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9vbFxQYXJ0aWFsc1xfTmF0b0dlbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Tool/Partials/_PwdGen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9vbFxQYXJ0aWFsc1xfUHdkR2VuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Tool/Partials/_QR.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9vbFxQYXJ0aWFsc1xfUVIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Tool/Sidebar/_SearchBox.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9vbFxTaWRlYmFyXF9TZWFyY2hCb3guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Tool/Sidebar/_Sidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9vbFxTaWRlYmFyXF9TaWRlYmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Tool/Sidebar/_ToolList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9vbFxTaWRlYmFyXF9Ub29sTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/Tool/_ToggleMobile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9vbFxfVG9nZ2xlTW9iaWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[K:/ASP.NET/MyBlog/MyBlog/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

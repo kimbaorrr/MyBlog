@@ -1,0 +1,87 @@
+﻿<div class="rounded-lg border-2 border-[#F59E0B] p-4 dark:border-[#FBBF24]">
+    <!--Input Text-->
+    <div class="relative w-full">
+        @Html.TextArea("natoContent", null, new
+            {
+                id = "natoContent",
+                rows = "4",
+                placeholder = localizer["tools.labels.qr.placeholder"],
+                @class = "blueBox w-full p-2.5 pb-8 text-sm"
+            })
+        <span class="char_counter absolute bottom-0 right-2.5 p-2.5 text-sm font-bold text-gray-500">
+            <span>0</span> @localizer["tools.labels.qr.character"]
+        </span>
+    </div>
+
+    <!--Action-->
+    <div class="flex items-center justify-center space-x-4">
+        <button id="encodeBtn" type="button"
+                class="blueBtn px-4 py-2 text-sm font-semibold text-white">
+            @localizer["tools.labels.base64.encode"]
+        </button>
+    </div>
+</div>
+
+<div class="mt-4 flex-col items-center justify-center rounded-lg border-2 border-[#10B981] bg-gray-100 p-4 py-8 dark:bg-gray-800">
+    <div class="mb-2 flex items-center justify-between">
+        <span class="text-lg font-bold">@localizer["tools.labels.base64.output"] ✍️</span>
+    </div>
+
+    <!--Output Text-->
+    <div>
+        @Html.TextArea("natoOutput", null, new
+            {
+                id = "natoOutput",
+                rows = "8",
+                @readonly = "readonly",
+                @class = "w-full p-2.5 pb-8 mt-2 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 dark:border-gray-600 dark:focus:border-blue-500 dark:focus:ring-blue-500 focus:border-blue-500 focus:ring-blue-500"
+            })
+        <p id="copiedMsg" class="text-xs italic text-gray-600 dark:text-gray-400" style="display: none;">
+            @localizer["tools.labels.pwdgen.copied"]
+        </p>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#natoContent").on("input", function () {
+            var length = $(this).val().length;
+            $(this).parent().find(".char_counter span").text(length);
+        });
+
+        const natoMap = {
+            'A': 'Alpha', 'B': 'Bravo', 'C': 'Charlie',
+            'D': 'Delta', 'E': 'Echo', 'F': 'Foxtrot',
+            'G': 'Golf', 'H': 'Hotel', 'I': 'India',
+            'J': 'Juliett', 'K': 'Kilo', 'L': 'Lima',
+            'M': 'Mike', 'N': 'November', 'O': 'Oscar',
+            'P': 'Papa', 'Q': 'Quebec', 'R': 'Romeo',
+            'S': 'Sierra', 'T': 'Tango', 'U': 'Uniform',
+            'V': 'Victor', 'W': 'Whiskey', 'X': 'X-ray',
+            'Y': 'Yankee', 'Z': 'Zulu',
+            '0': 'Zero', '1': 'One', '2': 'Two', '3': 'Three', '4': 'Four',
+            '5': 'Five', '6': 'Six', '7': 'Seven', '8': 'Eight', '9': 'Nine'
+        };
+
+        $("#encodeBtn, #natoContent").on("click input", function () {
+            $("#copiedMsg").hide();
+
+            var inputText = $("#natoContent").val().toUpperCase();
+            var encoded = inputText.split("").map(ch => natoMap[ch] || ch).join(" ");
+
+            $("#natoOutput").val(encoded);
+        });
+
+        $("#natoOutput").on("click", function () {
+            let text = $(this).val();
+
+            if (!text) return;
+
+            navigator.clipboard.writeText(text).then(() => {
+                $("#copiedMsg").show();
+            }).catch(err => {
+                console.error("Copy failed: ", err);
+            });
+        });
+    })
+</script>

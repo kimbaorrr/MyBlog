@@ -1,0 +1,372 @@
+﻿@{
+    ViewData["Title"] = "Dự án";
+    @model List<ProjectPageViewModel>;
+
+}
+
+<!--Top-->
+<div class="divide-y divide-gray-200 dark:divide-gray-700">
+    <div class="space-y-2 pb-0 pt-6 md:space-y-5">
+        <h1 class="text-xl font-extrabold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:leading-[5.5rem] md:text-6xl">
+            @localizer["projects.title"]
+        </h1>
+        <p class="text-base text-gray-500 dark:text-gray-400 md:text-lg md:leading-7">
+            @localizer["projects.description"]
+        </p>
+
+        <div class="flex flex-col items-center justify-center sm:flex-row md:justify-between">
+            <!-- Filter Buttons -->
+            @await Html.PartialAsync("_FilterButtons")
+
+            <!--Search Box-->
+            @await Html.PartialAsync("_SearchBox")
+
+        </div>
+    </div>
+</div>
+
+<!--Bottom (Grid Cards)-->
+<div class="my-3 grid h-full grid-cols-1 items-baseline gap-2 overflow-y-auto bg-gray-100 shadow-lg dark:bg-gray-500 sm:grid-cols-2 xl:h-[48vh] xl:grid-cols-4">
+    @foreach (var item in Model)
+    {
+        <div class="relative transform cursor-pointer bg-white p-4 shadow-lg transition-opacity duration-500 hover:shadow-xl hover:shadow-gray-300 dark:bg-gray-700 dark:hover:shadow-gray-400 xl:hover:-translate-y-1" name="projectCard" data-project-status="@item.Status">
+
+            <!--In Progress Ribbon-->
+            @if (!item.Status)
+            {
+                @await Html.PartialAsync("Card/_Ribbon")
+            }
+
+
+            <!--Card header-->
+            <div class="mt-1 flex items-center justify-between text-black dark:text-white">
+                <h4 class="text-xl font-semibold" data-project-name="@item.Name">
+                    @item.Name
+                </h4>
+                <div class="z-10 flex items-center space-x-1">
+                    @await Html.PartialAsync("Card/_EyeViewer")
+                    <span class="text-sm font-medium">@item.Viewer</span>
+                </div>
+            </div>
+
+            <!--Card body-->
+            <div class="mt-2 space-y-1 text-xs">
+                <!--Technical Info-->
+                <div class="flex items-center space-x-1">
+                    <span class="font-semibold text-black dark:text-gray-100">
+                        @localizer["projects.card.technical.description"]:
+                    </span>
+                    <span class="text-black dark:text-gray-200">@item.Description</span>
+                </div>
+                @{
+                    if (item.Type.Equals("AI"))
+                    {
+                            <div class="flex items-center space-x-1">
+                                <span class="font-semibold text-black dark:text-gray-100">
+                                    @localizer["projects.card.technical.dataset"]:
+                                </span>
+                                <a href="@item.Datasets.Url" target="_blank" class="text-orange-400 dark:text-orange-600">
+                                    @item.Datasets.Name
+                                </a>
+                            </div>
+
+                    }
+                }
+
+
+                @{
+                    if (item.TechStacks.Languages.Any())
+                    {
+                            <div class="flex items-center space-x-1" v-if="this.projectData?.techStack.languages.length">
+                                <span class="font-semibold text-black dark:text-gray-100">
+                                    @localizer["projects.card.technical.lang"]:
+                                </span>
+                                <span class="text-black dark:text-gray-200">@string.Join(", ", item.TechStacks.Languages)</span>
+                            </div>
+                    }
+                }
+                @{
+                    if (item.Type.Equals("AI"))
+                    {
+                            <div class="flex items-center space-x-1">
+                                <span class="font-semibold text-black dark:text-gray-100">
+                                    @localizer["projects.card.technical.metrics"]
+
+                                </span>
+                                <div class="space-x-1">
+                                    <button type="button" class="text-orange-400 text-orange-700 dark:text-orange-600 dark:text-orange-400">
+                                        @localizer["projects.card.technical.metrics.scalar"]
+                                    </button>
+                                    <span class="font-bold text-gray-600">|</span>
+                                    <button type="button" class="text-orange-400 dark:text-orange-600" name="cfsMatrixBtn">
+                                        @localizer["projects.card.technical.metrics.matrix"]
+                                    </button>
+                                </div>
+                            </div>
+
+                        if (!string.IsNullOrEmpty(item.EvaluationMetrics.ConfusionMatrix))
+                        {
+                            <div class="flex max-h-36 w-full" style="display:none;" name="cfsMatrixView">
+                                    <img src="@item.EvaluationMetrics.ConfusionMatrix" alt="Confussion Matrix" class="inline-flex h-auto w-full" />
+                                </div>
+                        }
+
+                    }
+                }
+
+                @{
+                    if (item.Type.Equals("NET"))
+                    {
+                            <div class="flex items-center space-x-1" v-if="this.projectData?.techStack.frontEnd.length">
+                                <span class="font-semibold text-black dark:text-gray-100">
+                                    @localizer["projects.card.technical.fe"]:
+                                </span>
+                                <span class="text-black dark:text-gray-200">@string.Join(", ", item.TechStacks.FrontEnd)</span>
+                            </div>
+
+                            <div class="flex items-center space-x-1" v-if="this.projectData?.techStack.backEnd.length">
+                                <span class="font-semibold text-black dark:text-gray-100">
+                                    @localizer["projects.card.technical.be"]:
+                                </span>
+                                <span class="text-black dark:text-gray-200">@string.Join(", ", item.TechStacks.BackEnd)</span>
+                            </div>
+
+                            <div class="flex items-center space-x-1" v-if="this.projectData?.techStack.database.length">
+                                <span class="font-semibold text-black dark:text-gray-100">
+                                    @localizer["projects.card.technical.db"]:
+                                </span>
+                                <span class="text-black dark:text-gray-200">@string.Join(", ", item.TechStacks.Database)</span>
+                            </div>
+
+                            <div class="flex items-center space-x-1" v-if="this.projectData?.techStack.infrastructure.length">
+                                <span class="font-semibold text-black dark:text-gray-100">
+                                    @localizer["projects.card.technical.inf_str"]:
+                                </span>
+                                <span class="text-black dark:text-gray-200">@string.Join(", ", item.TechStacks.Infrastructure)</span>
+                            </div>
+
+                            <div class="flex items-center space-x-1">
+                                <span class="font-semibold text-black dark:text-gray-100">
+                                    @localizer["projects.card.technical.arc"]:
+                                </span>
+                                <span class="text-black dark:text-gray-200">@string.Join(", ", item.TechStacks.Architecture)</span>
+                            </div>
+                    }
+                }
+
+
+                @{
+                    if (item.Type.Equals("AI"))
+                    {
+                            <div class="flex items-center space-x-1">
+                                <span class="font-semibold text-black dark:text-gray-100">
+                                    @localizer["projects.card.technical.lib"]:
+                                </span>
+                                <span class="text-black dark:text-gray-200">@string.Join(", ", item.TechStacks.Libraries)</span>
+                            </div>
+
+                            <div class="flex items-center space-x-1">
+                                <span class="font-semibold text-black dark:text-gray-100">
+                                    @localizer["projects.card.technical.model"]:
+                                </span>
+                                <span class="text-black dark:text-gray-200">@string.Join(", ", item.TechStacks.Models)</span>
+                            </div>
+
+                            <div class="flex items-center space-x-1">
+                                <span class="font-semibold text-black dark:text-gray-100">
+                                    @localizer["projects.card.technical.framework"]:
+                                </span>
+                                <span class="text-black dark:text-gray-200">@string.Join(", ", item.TechStacks.Frameworks)</span>
+                            </div>
+
+                            <div class="flex items-center space-x-1">
+                                <span class="font-semibold text-black dark:text-gray-100">
+                                    @localizer["projects.card.technical.algo"]:
+                                </span>
+                                <span class="text-black dark:text-gray-200">@string.Join(", ", item.TechStacks.Algorithms)</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <span class="font-semibold text-black dark:text-gray-100">
+                                    @localizer["projects.card.technical.task_type"]:
+                                </span>
+                                <span class="text-black dark:text-gray-200">@string.Join(", ", item.TechStacks.TaskType)</span>
+                            </div>
+                    }
+                }
+
+
+                <div class="flex items-center space-x-1">
+                    <span class="font-semibold text-black dark:text-gray-100">
+                        @localizer["projects.card.technical.scope"]:
+                    </span>
+                    <span class="text-black dark:text-gray-200">@(item.Members > 1 ? localizer["projects.card.technical.scope.team"] : localizer["projects.card.technical.scope.personal"])</span>
+                </div>
+                @{
+                    if (item.Members > 1)
+                    {
+                            <div class="flex items-center space-x-1">
+                                <span class="font-semibold text-black dark:text-gray-100">
+                                    @localizer["projects.card.technical.role"]:
+                                </span>
+                                <span class="text-black dark:text-gray-200">@item.Role </span>
+                            </div>
+                    }
+                }
+
+                <div class="flex items-center space-x-2">
+                    <span class="font-semibold text-black dark:text-gray-100">
+                        @localizer["projects.card.technical.code"]:
+                    </span>
+
+                    <a href="@(!string.IsNullOrEmpty(item.SourceCodes.GitHub) ? item.SourceCodes.GitHub : "#")"
+                       class="text-gray-800 duration-500 hover:text-gray-400 dark:text-gray-300 hover:dark:text-gray-600"
+                       target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="22" height="22" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a>
+
+                    <a href="@(!string.IsNullOrEmpty(item.SourceCodes.GitLab) ? item.SourceCodes.GitLab : "#")"
+                       class="filter duration-500 hover:brightness-125 dark:hover:brightness-150" target="_blank">
+                        <svg width="22" height="22" viewBox="0 -10 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                             fill="currentColor" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
+                            <g>
+                                <path d="M128.07485,236.074667 L128.07485,236.074667 L175.17885,91.1043048 L80.9708495,91.1043048 L128.07485,236.074667 L128.07485,236.074667 Z"
+                                      fill="#E24329">
+
+                                </path>
+                                <path d="M128.07485,236.074423 L80.9708495,91.104061 L14.9557638,91.104061 L128.07485,236.074423 L128.07485,236.074423 Z"
+                                      fill="#FC6D26">
+
+                                </path>
+                                <path d="M14.9558857,91.1044267 L14.9558857,91.1044267 L0.641828571,135.159589 C-0.663771429,139.17757 0.766171429,143.57955 4.18438095,146.06275 L128.074971,236.074789 L14.9558857,91.1044267 L14.9558857,91.1044267 Z"
+                                      fill="#FCA326">
+
+                                </path>
+                                <path d="M14.9558857,91.1045486 L80.9709714,91.1045486 L52.6000762,3.79026286 C51.1408762,-0.703146667 44.7847619,-0.701927619 43.3255619,3.79026286 L14.9558857,91.1045486 L14.9558857,91.1045486 Z"
+                                      fill="#E24329">
+
+                                </path>
+                                <path d="M128.07485,236.074423 L175.17885,91.104061 L241.193935,91.104061 L128.07485,236.074423 L128.07485,236.074423 Z"
+                                      fill="#FC6D26">
+
+                                </path>
+                                <path d="M241.193935,91.1044267 L241.193935,91.1044267 L255.507992,135.159589 C256.813592,139.17757 255.38365,143.57955 251.96544,146.06275 L128.07485,236.074789 L241.193935,91.1044267 L241.193935,91.1044267 Z"
+                                      fill="#FCA326">
+
+                                </path>
+                                <path d="M241.193935,91.1045486 L175.17885,91.1045486 L203.549745,3.79026286 C205.008945,-0.703146667 211.365059,-0.701927619 212.824259,3.79026286 L241.193935,91.1045486 L241.193935,91.1045486 Z"
+                                      fill="#E24329">
+
+                                </path>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!--See More icon-->
+            @await Html.PartialAsync("Card/_SeeMoreIcon")
+
+
+
+
+        </div>
+    }
+</div>
+
+<!--Selected Card Modal-->
+@await Html.PartialAsync("_SelectedCardModal")
+
+<script>
+    $(document).ready(function () {
+        function updateModal(card) {
+            let cardTitle = card.find("h4").first().text().trim();
+            let cardBody = card.find(".mt-2.space-y-1.text-xs").first().children().clone();
+            let cardStatus = card.data("project-status");
+
+            $("#projectCardModal h2").text(cardTitle);
+            $("#projectCardModal .mt-4.space-y-2.text-sm").empty().append(cardBody);
+
+            let footer = $("#projectCardModalFooter");
+            let statusDot = footer.find("span:first");
+            let statusText = footer.find("span:last");
+
+            if (cardStatus === "True") {
+                statusDot.removeClass("bg-red-600 dark:bg-red-500")
+                         .addClass("bg-green-600 dark:bg-green-500");
+                statusText.removeClass("text-red-600 dark:text-red-500")
+                          .addClass("text-green-600 dark:text-green-500")
+                          .text('@Html.Raw(localizer["projects.filter_by.done"])');
+            } else {
+                statusDot.removeClass("bg-green-600 dark:bg-green-500")
+                         .addClass("bg-red-600 dark:bg-red-500");
+                statusText.removeClass("text-green-600 dark:text-green-500")
+                          .addClass("text-red-600 dark:text-red-500")
+                          .text('@Html.Raw(localizer["projects.filter_by.in_progress"])');
+            }
+        }
+
+        function resetButtonBorders() {
+            $("#filterBy button")
+                .removeClass("border-blue-500 border-red-500 border-green-500 border-gray-300 dark:border-gray-500")
+                .addClass("border-gray-300 dark:border-gray-500");
+        }
+
+        function applyFilter(pStatus) {
+            $('div[name="projectCard"]').each(function () {
+                let cardStatus = $(this).data("project-status");
+                if (pStatus === "in_progress") {
+                    $(this).toggle(cardStatus === "False");
+                } else if (pStatus === "done") {
+                    $(this).toggle(cardStatus === "True");
+                } else {
+                    $(this).show();
+                }
+            });
+        }
+
+        function filterByText(keyword) {
+            $("div[name='projectCard']").each(function () {
+                let projectName = ($(this).find("h4[data-project-name]").data("project-name") || "")
+                    .toString()
+                    .toLowerCase();
+                $(this).toggle(projectName.includes(keyword));
+            });
+        }
+
+        // ===== Event bindings =====
+
+        $("#filterBy button").on("click", function () {
+            resetButtonBorders();
+            let borderClass = "border-gray-300 dark:border-gray-500";
+            switch ($(this).val()) {
+                case "all": borderClass = "border-blue-500"; break;
+                case "in_progress": borderClass = "border-red-500"; break;
+                case "done": borderClass = "border-green-500"; break;
+            }
+            $(this).removeClass("border-gray-300 dark:border-gray-500").addClass(borderClass);
+            applyFilter($(this).val());
+        });
+
+        $("#searchBox input").on("keyup keydown", function () {
+            let keyword = $(this).val().toLowerCase();
+            filterByText(keyword);
+        });
+
+        $("div[name='projectCard']").on("click", function () {
+            updateModal($(this));
+            $("#projectCardModal").removeClass("hidden");
+        });
+
+        $("#closeModal").on("click", function () {
+            $("#projectCardModal").addClass("hidden");
+        });
+
+        $("button[name='cfsMatrixBtn']").on("click", function () {
+            $("div[name='cfsMatrixView']").hide();
+            $(this).closest("div[name='projectCard']").find("div[name='cfsMatrixView']").show();
+        });
+    });
+</script>
+

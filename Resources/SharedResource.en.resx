@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="nav.home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="nav.project" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="nav.tool" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="nav.cv" xml:space="preserve">
+    <value>Resume</value>
+  </data>
+  <data name="nav.contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="home_body.hi" xml:space="preserve">
+    <value>Hi there !</value>
+  </data>
+  <data name="home_body.favorite" xml:space="preserve">
+    <value>Favorite</value>
+  </data>
+  <data name="home_body.link_list.projects" xml:space="preserve">
+    <value>My Projects</value>
+  </data>
+  <data name="home_body.link_list.tools" xml:space="preserve">
+    <value>My Tools</value>
+  </data>
+  <data name="home_body.link_list.cv" xml:space="preserve">
+    <value>My Resume</value>
+  </data>
+  <data name="home_body.link_list.contact" xml:space="preserve">
+    <value>My Contact Information</value>
+  </data>
+  <data name="home_body.thanks" xml:space="preserve">
+    <value>Thanks for coming ! ❤️</value>
+  </data>
+  <data name="home_body.greeting.day" xml:space="preserve">
+    <value>🌻 Good morning! Have a great day!</value>
+  </data>
+  <data name="question.header" xml:space="preserve">
+    <value>Send your question</value>
+  </data>
+  <data name="question.close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="question.body.name" xml:space="preserve">
+    <value>Your name</value>
+  </data>
+  <data name="question.body.email" xml:space="preserve">
+    <value>Email address</value>
+  </data>
+  <data name="question.body.content" xml:space="preserve">
+    <value>What would you like to ask me ?</value>
+  </data>
+  <data name="question.body.content_placeholder" xml:space="preserve">
+    <value>Enter something here...</value>
+  </data>
+  <data name="question.body.send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="question.body.placeholder" xml:space="preserve">
+    <value>Enter something here...</value>
+  </data>
+  <data name="question.body.response.success" xml:space="preserve">
+    <value>Your question had been recorded !</value>
+  </data>
+  <data name="question.body.response.fail" xml:space="preserve">
+    <value>Error when sending the question. Please try again !</value>
+  </data>
+  <data name="projects.title" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="projects.description" xml:space="preserve">
+    <value>A list of the projects I have done &amp; am currently working on</value>
+  </data>
+  <data name="projects.filter_by.all" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="projects.filter_by.in_progress" xml:space="preserve">
+    <value>In Progress</value>
+  </data>
+  <data name="projects.filter_by.done" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="projects.search_box.placeholder" xml:space="preserve">
+    <value>Find a project...</value>
+  </data>
+  <data name="projects.card.try" xml:space="preserve">
+    <value>Try now</value>
+  </data>
+  <data name="projects.card.technical.desc" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="projects.card.technical.dataset" xml:space="preserve">
+    <value>Dataset</value>
+  </data>
+  <data name="projects.card.technical.lang" xml:space="preserve">
+    <value>Languages</value>
+  </data>
+  <data name="projects.card.technical.metrics" xml:space="preserve">
+    <value>Evaluation Metrics</value>
+  </data>
+  <data name="projects.card.technical.fe" xml:space="preserve">
+    <value>Frontend</value>
+  </data>
+  <data name="projects.card.technical.be" xml:space="preserve">
+    <value>Backend</value>
+  </data>
+  <data name="projects.card.technical.db" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="projects.card.technical.inf_str" xml:space="preserve">
+    <value>Infractructure</value>
+  </data>
+  <data name="projects.card.technical.arc" xml:space="preserve">
+    <value>Architecture</value>
+  </data>
+  <data name="projects.card.technical.lib" xml:space="preserve">
+    <value>Library</value>
+  </data>
+  <data name="projects.card.technical.model" xml:space="preserve">
+    <value>Models Used</value>
+  </data>
+  <data name="projects.card.technical.framework" xml:space="preserve">
+    <value>Frameworks</value>
+  </data>
+  <data name="projects.card.technical.algo" xml:space="preserve">
+    <value>Algorithms</value>
+  </data>
+  <data name="projects.card.technical.task_type" xml:space="preserve">
+    <value>Task Type</value>
+  </data>
+  <data name="projects.card.technical.scope" xml:space="preserve">
+    <value>Scope</value>
+  </data>
+  <data name="projects.card.technical.role" xml:space="preserve">
+    <value>Team Role</value>
+  </data>
+  <data name="projects.card.technical.code" xml:space="preserve">
+    <value>Source code</value>
+  </data>
+  <data name="tools.search_box.placeholder" xml:space="preserve">
+    <value>Find a tool...</value>
+  </data>
+  <data name="tools.labels.qr.title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="tools.labels.qr.subtitle" xml:space="preserve">
+    <value>Subtitle</value>
+  </data>
+  <data name="tools.labels.qr.color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="tools.labels.qr.image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="tools.labels.qr.placeholder" xml:space="preserve">
+    <value>Enter the text to generate QR...</value>
+  </data>
+  <data name="tools.labels.qr.download" xml:space="preserve">
+    <value>Download QR</value>
+  </data>
+  <data name="tools.labels.qr.character" xml:space="preserve">
+    <value>characters</value>
+  </data>
+  <data name="tools.labels.qr.wifi.show" xml:space="preserve">
+    <value>QR for Wifi Connect</value>
+  </data>
+  <data name="tools.labels.qr.wifi.ssid" xml:space="preserve">
+    <value>SSID</value>
+  </data>
+  <data name="tools.labels.qr.wifi.secure" xml:space="preserve">
+    <value>Secure Type</value>
+  </data>
+  <data name="tools.labels.qr.wifi.pwd" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="tools.labels.qr.wifi.hidden" xml:space="preserve">
+    <value>Hidden SSID</value>
+  </data>
+  <data name="tools.labels.base64.placeholder" xml:space="preserve">
+    <value>Enter the text to encode/decode...</value>
+  </data>
+  <data name="tools.labels.base64.encode" xml:space="preserve">
+    <value>Encode</value>
+  </data>
+  <data name="tools.labels.base64.decode" xml:space="preserve">
+    <value>Decode</value>
+  </data>
+  <data name="tools.labels.base64.output" xml:space="preserve">
+    <value>Output</value>
+  </data>
+  <data name="tools.labels.pwdgen.type" xml:space="preserve">
+    <value>Choose password type</value>
+  </data>
+  <data name="tools.labels.pwdgen.customize" xml:space="preserve">
+    <value>Customize your new password</value>
+  </data>
+  <data name="tools.labels.pwdgen.output" xml:space="preserve">
+    <value>Generated password</value>
+  </data>
+  <data name="tools.labels.pwdgen.copy" xml:space="preserve">
+    <value>Copy to clipboard</value>
+  </data>
+  <data name="tools.labels.pwdgen.refresh" xml:space="preserve">
+    <value>Refresh password</value>
+  </data>
+  <data name="tools.labels.pwdgen.autorefresh" xml:space="preserve">
+    <value>Auto refresh</value>
+  </data>
+  <data name="tools.labels.pwdgen.copied" xml:space="preserve">
+    <value>Copied to clipboard !</value>
+  </data>
+  <data name="tools.labels.img_pdf.convert" xml:space="preserve">
+    <value>Convert</value>
+  </data>
+  <data name="tools.labels.img_pdf.clear" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="tools.labels.img_pdf.output.file_name" xml:space="preserve">
+    <value>File name</value>
+  </data>
+  <data name="tools.labels.img_pdf.output.paper_size" xml:space="preserve">
+    <value>Paper size</value>
+  </data>
+  <data name="tools.labels.img_pdf.output.orient" xml:space="preserve">
+    <value>Orientation</value>
+  </data>
+  <data name="alert.title" xml:space="preserve">
+    <value>Oops...</value>
+  </data>
+  <data name="alert.description" xml:space="preserve">
+    <value>The system encountered an error. Please try again later.!</value>
+  </data>
+  <data name="projects.card.technical.metrics.matrix" xml:space="preserve">
+    <value>Confussion Matrix</value>
+  </data>
+  <data name="projects.card.technical.metrics.scalar" xml:space="preserve">
+    <value>Scalar Metrics</value>
+  </data>
+  <data name="projects.card.technical.scope.personal" xml:space="preserve">
+    <value>Individual</value>
+  </data>
+  <data name="projects.card.technical.scope.team" xml:space="preserve">
+    <value>Teammate</value>
+  </data>
+  <data name="projects.card.technical.description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="tools.labels.img_pdf.output.orient.landscape" xml:space="preserve">
+    <value>Landscape</value>
+  </data>
+  <data name="tools.labels.img_pdf.output.orient.portrait" xml:space="preserve">
+    <value>Portrait</value>
+  </data>
+  <data name="footer.copyright" xml:space="preserve">
+    <value>All rights reserved.</value>
+  </data>
+</root>

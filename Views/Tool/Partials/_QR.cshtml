@@ -1,0 +1,138 @@
+﻿<!--Input-->
+<div class="space-y-3 rounded-lg border-2 border-[#F59E0B] p-4 dark:border-[#FBBF24]">
+    <!--QR-->
+    <div id="normalQR">
+        <!--Textarea-->
+        <div class="relative w-full">
+            @Html.TextArea("qrContent", null, new { rows = "4", autofocus = "true", placeholder = localizer["tools.labels.qr.placeholder"], @class = "blueBox border-2 focus:border-pink-400 focus:dark:border-pink-600 w-full p-2.5 pb-8 text-sm" })
+            <span class="char_counter absolute bottom-0 right-2.5 p-2.5 text-sm font-bold text-gray-500">
+                <span>0</span> @localizer["tools.labels.qr.character"]
+            </span>
+        </div>
+
+        <div class="grid gap-4 text-sm text-black dark:text-white sm:grid-cols-2 md:grid-cols-4">
+            <div class="col-span-2">
+                @Html.Label("tieuDe", localizer["tools.labels.qr.title"], new { @class = "font-medium" })
+                @Html.TextBox("tieuDe", null, new { @class = "blueBox border-2 focus:border-pink-400 focus:dark:border-pink-600 p-2 w-full" })
+            </div>
+
+            <div class="col-span-2">
+                @Html.Label("tieuDeCon", localizer["tools.labels.qr.subtitle"], new { @class = "font-medium" })
+                @Html.TextBox("tieuDeCon", null, new { @class = "blueBox border-2 focus:border-pink-400 focus:dark:border-pink-600 p-2 w-full" })
+            </div>
+
+            <div class="col-span-2">
+                @Html.Label("mauSac", localizer["tools.labels.qr.color"], new { @class = "font-medium" })
+                @Html.TextBox("mauSac", null, new { type = "color", @class = "blueBox border-2 focus:border-pink-400 focus:dark:border-pink-600 p-[1.15rem] w-full" })
+            </div>
+
+            <div class="col-span-2">
+                @Html.Label("hinhAnh", localizer["tools.labels.qr.image"], new { @class = "font-medium" })
+                @Html.TextBox("hinhAnh", null, new { type = "file", accept = "image/*", @class = "blueBox border-2 focus:border-pink-400 focus:dark:border-pink-600 p-[0.35rem] w-full" })
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center space-x-1.5">
+        <span class="font-medium">@localizer["tools.labels.qr.wifi.show"]</span>
+        @Html.CheckBox("isWifi", new { @class = "blueBox" })
+    </div>
+
+    <!--Wifi Connect-->
+    <div class="flex flex-col gap-4 text-sm text-black dark:text-white md:grid md:grid-cols-4" id="wifiConnect" style="display: none;">
+        <div class="col-span-1">
+            @Html.Label("ssid", localizer["tools.labels.qr.wifi.ssid"], new { @class = "font-medium" })
+            @Html.TextBox("ssid", null, new { @class = "blueBox border-2 focus:border-pink-400 focus:dark:border-pink-600 p-[0.35rem] w-full" })
+        </div>
+        <div class="col-span-1">
+            @Html.Label("secureType", localizer["tools.labels.qr.wifi.secure"], new { @class = "font-medium" })
+            @Html.DropDownList("secureType", new SelectList(new[] {
+            new { Value = "nopass", Text = "Open" },
+            new { Value = "wep", Text = "WEP" },
+            new { Value = "wpa", Text = "WPA/WPA2/WPA3 PSK" }
+            }, "Value", "Text"), new { @class = "blueBox border-2 focus:border-pink-400 focus:dark:border-pink-600 p-[0.35rem] w-full" })
+        </div>
+        <div class="col-span-1">
+            @Html.Label("password", localizer["tools.labels.qr.wifi.pwd"], new { @class = "font-medium" })
+            @Html.Password("password", null, new { autocomplete = "new-password", @class = "blueBox border-2 focus:border-pink-400 focus:dark:border-pink-600 p-[0.35rem] w-full" })
+        </div>
+        <div class="col-span-1">
+            @Html.Label("hiddenSSID", localizer["tools.labels.qr.wifi.hidden"], new { @class = "font-medium" })
+            @Html.DropDownList("hiddenSSID", new SelectList(new[] {
+            new { Value = "true", Text = "Yes" },
+            new { Value = "false", Text = "No" }
+            }, "Value", "Text"), new { @class = "blueBox border-2 focus:border-pink-400 focus:dark:border-pink-600 p-[0.35rem] w-full" })
+        </div>
+    </div>
+</div>
+
+<!--Output-->
+<div class="mt-4 flex w-full flex-col items-center justify-center rounded-lg border-2 border-[#10B981] bg-gray-100 p-4 py-12 dark:bg-gray-800" id="outputQR">
+    <div id="renderQR"></div>
+    <p class="mt-4 text-center font-semibold"></p>
+    <p class="text-center text-sm"></p>
+    <button type="button" class="blueBtn mt-1.5 px-4 py-2 font-medium text-white">
+        @localizer["tools.labels.qr.download"]
+    </button>
+</div>
+
+
+<script src="/js/qrcode.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        function renderQR(text, title, subtitle, colorDark = "#000000") {
+            if (!text.trim()) return;
+
+            var qrContainer = $("#renderQR");
+            qrContainer.empty();
+
+            new QRCode(qrContainer[0], {
+                text: text,
+                width: 256,
+                height: 256,
+                colorDark: colorDark,
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            $("#outputQR p:first").text(title);
+            $("#outputQR p:last").text(subtitle);
+        }
+
+        $("input[type='checkbox']").on("change", function () {
+            $("#renderQR").empty();
+            $("#outputQR p").empty();
+            $("#normalQR").toggle(!this.checked);
+            $("#wifiConnect").toggle(this.checked);
+        });
+
+        $("#qrContent, input[name='tieuDe'], input[name='tieuDeCon'], input[type='color']").on("input change", function () {
+            var text = $("#qrContent").val();
+            var title = $("input[name='tieuDe']").val();
+            var subtitle = $("input[name='tieuDeCon']").val();
+            var colorDark = $("input[type='color']").val();
+            renderQR(text, title, subtitle, colorDark);
+        });
+
+        $("#qrContent").on("input", function () {
+            var length = $(this).val().length;
+            $(this).parent().find(".char_counter span").text(length);
+        });
+
+        $("#wifiConnect").find("input[type='text'], input[type='password'], select").on("input change", function () {
+            var ssid = $("#wifiConnect").find("input[name='ssid']").val() || "";
+            var secure = $("#wifiConnect").find("select").eq(0).val() || "nopass";
+            var password = $("#wifiConnect").find("input[name='password']").val() || "";
+            var hidden = $("#wifiConnect").find("select").eq(1).val() || "false";
+
+            var wifiString = `WIFI:T:${secure};S:${ssid};P:${password};H:${hidden};;`;
+
+            var colorDark = $("input[type='color']").val();
+            renderQR(wifiString, "", "", colorDark);
+        });
+
+        // Autofocus cho textarea khi load trang
+        $("#qrContent").focus();
+    });
+</script>
+

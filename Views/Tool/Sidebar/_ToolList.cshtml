@@ -1,0 +1,16 @@
+﻿@model List<Tool>;
+
+<ul class="list-none font-medium text-black dark:text-white" id="toolList">
+    @foreach (var tool in Model)
+    {
+        <li class="my-3 duration-300 hover:translate-x-2">
+            <a href="#" class="flex items-center space-x-2 rounded-lg p-2" data-selector="@tool.Selector">
+                <span>@Html.Raw(tool.Icon)</span>
+                <span class="text-sm">@tool.Name</span>
+            </a>
+        </li>
+    }
+
+</ul>
+
+

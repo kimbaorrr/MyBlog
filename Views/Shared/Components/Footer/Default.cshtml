@@ -1,0 +1,19 @@
+﻿@{
+    @model Socials;
+
+}
+
+<footer class="border-t border-gray-200 dark:border-gray-700">
+    <div class="mb-6 mt-4 flex flex-col items-center justify-center space-y-4 md:mb-10 md:space-y-0">
+        <div class="flex flex-col items-center">
+            <!--Copyright Text-->
+            @await Html.PartialAsync("Components/Footer/_Copyright")
+
+            <!--Icon Links-->
+            @await Html.PartialAsync("Components/Footer/_IconLinks", Model)
+        </div>
+    </div>
+
+    <!--Back to Top-->
+    @await Html.PartialAsync("Components/Footer/_BackToTop")
+</footer>

@@ -1,0 +1,14 @@
+﻿<!--Search Box-->
+<div class="mt-4 flex items-center sm:mt-0">
+    <div class="group relative w-full sm:w-auto" id="searchBox">
+        <div class="pointer-events-none absolute inset-y-0 left-3 right-7 flex translate-x-full items-center opacity-50 transition-transform duration-500 ease-in-out group-focus-within:translate-x-0 group-focus-within:opacity-100">
+            <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+            </svg>
+        </div>
+        <input type="text" placeholder="@localizer["projects.search_box.placeholder"]" value=""
+               class="w-full rounded-md border-2 border-gray-400 bg-gray-50 py-2 ps-8 text-sm text-black duration-300 focus:border-blue-500 focus:outline-none focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 sm:w-auto">
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿@model HomePageViewModel;
+
+<!--Personal Card-->
+<div class="hidden xl:block">
+    <!--Card Content-->
+    <div class="z-10 mb-8 scale-100 transition-all duration-200 ease-out hover:z-50 xl:mb-0 xl:hover:scale-[1.15]"
+         style="perspective: 600px;">
+        <div class="flex flex-col overflow-hidden bg-white shadow-lg shadow-gray-200 outline outline-1 outline-gray-100 transition-all duration-200 ease-out dark:bg-dark dark:shadow-green-700 dark:outline-gray-600 xl:rounded-3xl">
+            <!--Big Avatar-->
+            @await Html.PartialAsync("InfoCard/_BigAvatar", Model)
+
+
+            <div class="hidden py-4 xl:block xl:px-6">
+                <!--Brief-->
+                @await Html.PartialAsync("InfoCard/_Brief", Model)
+
+                <!--Detail-->
+                @await Html.PartialAsync("InfoCard/_Detail", Model)
+
+            </div>
+
+            <!--Color Bar-->
+            @await Html.PartialAsync("InfoCard/_ColorBar")
+        </div>
+    </div>
+</div>

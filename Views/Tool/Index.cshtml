@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Tiện ích";
+    @model List<Tool>;
+}
+
+<div class="relative flex h-screen overflow-y-auto rounded-2xl bg-gray-100 dark:bg-gray-900">
+    <!--Toggle Mobile Tool-->
+    @await Html.PartialAsync("_ToggleMobile")
+
+    <!--Sidebar-->
+    @await Html.PartialAsync("Sidebar/_Sidebar", Model)
+
+    <!--Render Selected Tool View-->
+    <div id="toolView" class="mt-10 flex flex-1 flex-col items-stretch overflow-y-auto md:mt-0 xl:px-5">
+        <div class="flex h-full w-full items-center justify-center text-red-300">
+                <img class="w-64 opacity-25" src="/imgs/tool_view.png" />
+            
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#toolList a').on('click', function (e) {
+        e.preventDefault();
+
+        var $link = $(this);
+        var selector = $link.data('selector');
+
+        $.ajax({
+            url: '@Url.Action("Load", "Tool")',
+            type: 'GET',
+            data: { selector: selector },
+            success: function (result) {
+                $('#toolView').empty();
+
+                $('#toolView').html(result);
+
+                $('#toolList li').removeClass('bg-gray-300 dark:bg-gray-700');
+
+                $link.parent('li').addClass('bg-gray-300 dark:bg-gray-700');
+            },
+            error: function (err) {
+                console.error(err);
+            }
+        });
+    });
+</script>

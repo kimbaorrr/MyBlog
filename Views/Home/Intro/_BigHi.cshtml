@@ -1,0 +1,25 @@
+﻿@model HomePageViewModel;
+
+<style>
+    @@keyframes say_hi {
+        0% {
+            transform: rotate(-10deg);
+        }
+
+        50% {
+            transform: rotate(-35deg);
+        }
+
+        100% {
+            transform: rotate(-10deg);
+        }
+    }
+</style>
+
+<div class="flex">
+    <!--BigHi-->
+    <span class="leading-[60px] flex bg-gradient-to-r from-yellow-600 to-red-600 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent dark:from-indigo-500 dark:to-purple-500 md:leading-[86px] md:text-7xl bg-[length:200%_auto]">
+        @Model.HomeIntroContentViewModel.Hi
+    </span>
+    <span class="ml-4 flex items-center text-5xl" style="animation: say_hi 1.5s linear infinite;">🖐️</span>
+</div>

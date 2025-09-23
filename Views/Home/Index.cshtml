@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+    @model HomePageViewModel;
+}
+
+<!--Greeting Message-->
+@await Html.PartialAsync("_GreetingMessage")
+
+<div class="mt-8 divide-y divide-gray-200 dark:divide-gray-700 md:mt-16">
+    <div class="space-y-2 md:my-4 md:space-y-5 md:pb-8 md:pt-6 xl:grid xl:grid-cols-3">
+        <!--Left Content-->
+        @await Html.PartialAsync("Intro/_Intro", Model)
+
+
+        <!--Right Content-->
+        @await Html.PartialAsync("InfoCard/_InfoCard", Model)
+    </div>
+</div>

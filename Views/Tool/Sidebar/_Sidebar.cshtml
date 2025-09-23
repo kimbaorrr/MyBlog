@@ -1,0 +1,40 @@
+﻿@model List<Tool>;
+
+<div class="-translate-x-full absolute top-0 z-40 h-full w-64 flex-shrink-0 overflow-y-auto rounded-lg bg-gray-200 p-2 transition-transform duration-300 ease-in-out dark:bg-gray-800 md:static md:translate-x-0">
+    <!--Search box-->
+    @await Html.PartialAsync("Sidebar/_SearchBox")
+
+    <hr class="border-1 mt-3 rounded border-gray-500">
+
+    <!--Tools list-->
+    @await Html.PartialAsync("Sidebar/_ToolList", Model)
+
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        function updateCounter() {
+            let visibleCount = $("#toolList li:visible").length;
+            $("#toolCounter").text(visibleCount);
+        }
+
+        updateCounter();
+
+        $("#searchInput").on("input", function () {
+            let text = $(this).val().toLowerCase().trim();
+
+            $("#toolList").find("span").each(function () {
+                let toolName = $(this).text().toLowerCase().trim();
+                if (toolName.includes(text)) {
+                    $(this).closest("li").show();
+                } else {
+                    $(this).closest("li").hide();
+                }
+            });
+
+            updateCounter();
+        });
+    });
+
+</script>

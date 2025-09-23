@@ -1,0 +1,10 @@
+﻿@model HomePageViewModel;
+<div class="mb-8 mt-4">
+    <ul>
+        @foreach (var goal in Model.HomeIntroContentViewModel.Goals)
+        {
+            <li>@goal</li>
+        }
+
+    </ul>
+</div>

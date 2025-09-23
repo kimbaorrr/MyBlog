@@ -1,0 +1,35 @@
+﻿<div class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-50" id="projectCardModal">
+    <div class="relative max-h-[80vh] w-auto
+                max-w-[90vw] overflow-y-auto rounded-lg bg-white
+                p-6 text-sm shadow-2xl dark:bg-gray-800">
+        <!-- Card Header -->
+        <div class="flex items-center justify-between">
+            <h2 class="text-xl font-bold text-black dark:text-white"></h2>
+            <button type="button" aria-label="closeModal" id="closeModal"
+                    class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white">
+                <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+                <span class="sr-only">Đóng</span>
+            </button>
+        </div>
+
+        <!--Card body-->
+        <div class="mt-4 space-y-2 text-sm"></div>
+
+        <!--Card Footer-->
+        <div class="mt-4 flex items-center justify-between" id="projectCardModalFooter">
+            <div class="flex animate-pulse items-center space-x-1">
+                <span class="rounded-full px-2 py-2"></span>
+                <span class="font-semibold">In progress</span>
+            </div>
+
+            <a href="#" target="_blank"
+               class="blueBtn mt-1 px-4 py-2 text-sm font-medium text-white">
+                @localizer["projects.card.try"]
+            </a>
+        </div>
+    </div>
+</div>

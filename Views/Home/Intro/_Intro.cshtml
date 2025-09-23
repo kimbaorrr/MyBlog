@@ -1,0 +1,21 @@
+﻿@model HomePageViewModel;
+
+<div class="space-y-6 md:space-y-8 md:pr-8 xl:col-span-2">
+    <!---BigHi-->
+    @await Html.PartialAsync("Intro/_BigHi", Model)
+
+    <div class="text-base leading-7 text-black dark:text-gray-100 md:text-lg md:leading-8">
+        <!--Main Text-->
+        @await Html.PartialAsync("Intro/_MainText", Model)
+
+        <!--Sub Goals-->
+        @await Html.PartialAsync("Intro/_SubText", Model)
+
+        <!--Navigator List-->
+        @await Html.PartialAsync("Intro/_Navigator", Model)
+
+        <!--Thanks for come-->
+        @await Html.PartialAsync("Intro/_Thanks", Model)
+
+    </div>
+</div>

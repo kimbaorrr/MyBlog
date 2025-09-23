@@ -1,0 +1,83 @@
+﻿@model FeedbackViewModel;
+
+<div id="feedbackModal" class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto overflow-x-hidden bg-opacity-55">
+    <div class="relative max-h-full w-full max-w-full p-4 md:w-3/12">
+        <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600 md:p-5">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                    Đóng góp ý kiến 😄
+                </h3>
+                <button type="button" aria-label="closeModal"
+                        class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Đóng</span>
+                </button>
+            </div>
+
+            <!-- Modal body -->
+            @using (Html.BeginForm("Send", "Feedback", FormMethod.Post, new { id = "feedbackForm", @class = "relative flex flex-col gap-4 p-4 md:p-5" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="flex flex-col gap-4">
+                    <div class="w-full">
+                        <div class="inline-flex">
+                            @Html.LabelFor(m => m.Name, htmlAttributes: new { @class = "mb-2 block text-sm font-medium text-gray-900 dark:text-white" })
+                            <span class="font-bold text-red-500"> *</span>
+                        </div>
+                        @Html.TextBoxFor(m => m.Name, new { @class = "blueBox w-full p-2.5 text-sm", placeholder = "Nguyễn Văn A", required = "required" })
+                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-red-500 text-sm" })
+                    </div>
+
+                    <div class="w-full">
+                        <div class="inline-flex">
+                            @Html.LabelFor(m => m.Email, htmlAttributes: new { @class = "mb-2 block text-sm font-medium text-gray-900 dark:text-white" })
+                            <span class="font-bold text-red-500"> *</span>
+                        </div>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "blueBox w-full p-2.5 text-sm", placeholder = "abc@gmail.com", required = "required" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-red-500 text-sm" })
+                    </div>
+
+                    <div class="w-full">
+                        <div class="inline-flex">
+                            @Html.LabelFor(m => m.Content, htmlAttributes: new { @class = "mb-2 block text-sm font-medium text-gray-900 dark:text-white" })
+                            <span class="font-bold text-red-500">*</span>
+                        </div>
+                        @Html.TextAreaFor(m => m.Content, 4, 50, new { @class = "blueBox w-full p-2.5 text-sm", placeholder = "Nhập nội dung bạn muốn đóng góp...", required = "required" })
+                        @Html.ValidationMessageFor(m => m.Content, "", new { @class = "text-red-500 text-sm" })
+                    </div>
+                    <div class="flex w-full justify-center">
+                        @Html.HiddenFor(m => m.Token)
+                        <div class="h-captcha"
+                             data-sitekey="db68756e-31f2-4612-a94a-9fe8796a2b2e"
+                             data-callback="onHcaptchaSuccess">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <button type="submit" class="blueBtn flex space-x-1 px-4 py-2.5 text-white">
+                        <svg fill="currentColor" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="relative flex text-sm font-medium">Gửi</span>
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    function onHcaptchaSuccess(token) {
+        $("#feedbackModal").find("#Token").val(token);
+    }
+    
+</script>
+

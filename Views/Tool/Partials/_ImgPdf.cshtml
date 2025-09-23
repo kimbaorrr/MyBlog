@@ -1,0 +1,78 @@
+﻿<div class="space-y-5 rounded-lg border-2 border-[#F59E0B] p-4 dark:border-[#FBBF24] md:p-10">
+    <div class="flex flex-col items-center justify-between gap-4 md:flex-row md:items-baseline md:justify-center md:gap-0 md:space-x-2">
+        <input type="file" accept="image/*" multiple
+               class="blueBox mt-2 w-full px-2 py-1 focus:border-2 focus:border-pink-400 md:w-5/12 dark:focus:border-pink-600" />
+        <div class="flex w-full flex-row justify-between gap-2 md:w-auto md:space-x-2">
+            <button class="blueBtn w-full px-4 py-2 text-white md:w-auto">
+                @localizer["tools.labels.img_pdf.convert"]
+            </button>
+            <button class="redBtn w-full px-4 py-2 text-white md:w-auto">
+                @localizer["tools.labels.img_pdf.clear"]
+            </button>
+        </div>
+    </div>
+
+    <!--Output Config-->
+    <div class="grid gap-4 text-sm text-black dark:text-white sm:grid-cols-2 md:grid-cols-4">
+        <div class="col-span-4">
+            <p class="border-b border-dashed border-gray-600 py-1 font-extralight italic text-gray-400 dark:border-gray-300">Cấu hình đầu ra</p>
+        </div>
+        <div class="col-span-2">
+            <label for="fileName" class="font-medium">
+                @localizer["tools.labels.img_pdf.output.file_name"]
+            </label>
+            <input type="text" id="fileName" class="blueBox mt-2 w-full p-2 focus:border-2 focus:border-pink-400 dark:focus:border-pink-600" />
+        </div>
+        <div class="col-span-2">
+            <label for="pageSize" class="font-medium">
+                @localizer["tools.labels.img_pdf.output.paper_size"]
+            </label>
+            <select id="pageSize" class="blueBox mt-2 w-full p-2 focus:border-2 focus:border-pink-400 dark:focus:border-pink-600">
+                <option value="a4">A4</option>
+                <option value="letter">Letter</option>
+                <option value="legal">Legal</option>
+                <option value="a3">A3</option>
+                <option value="a5">A5</option>
+                <option value="b5">B5</option>
+            </select>
+        </div>
+        <div class="col-span-2">
+            <label for="orientation" class="font-medium">
+                @localizer["tools.labels.img_pdf.output.orient"]
+            </label>
+            <select v-model="this.selectedOrientation" id="orientation" class="blueBox mt-2 w-full p-2 focus:border-2 focus:border-pink-400 dark:focus:border-pink-600">
+                <option value="portrait">
+                    @localizer["tools.labels.img_pdf.output.orient.portrait"]
+                </option>
+                <option value="landscape">
+                    @localizer["tools.labels.img_pdf.output.orient.landscape"]
+                </option>
+            </select>
+        </div>
+    </div>
+    
+   
+</div>
+
+<div class="mt-4 flex-col items-center justify-center rounded-lg border-2 border-[#10B981] bg-gray-100 p-4 py-8 dark:bg-gray-800">
+    <!--Imported Images-->
+    <div class="grid grid-cols-2 gap-2 md:grid-cols-4">
+        <div class="relative flex h-full flex-col items-center justify-center space-y-1">
+            <img src="" class="h-full w-full cursor-move rounded-lg duration-300 hover:opacity-80" />
+
+            <div class="absolute right-2 top-2 cursor-pointer rounded-full bg-white p-1 shadow-md duration-300 hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="lucide lucide-trash-2 lucide-trash2-icon text-red-600">
+                    <path d="M3 6h18" />
+                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                    <line x1="10" x2="10" y1="11" y2="17" />
+                    <line x1="14" x2="14" y1="11" y2="17" />
+                </svg>
+            </div>
+
+            <span class="text-sm font-medium">1</span>
+        </div>
+    </div>
+</div>
