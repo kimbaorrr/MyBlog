@@ -30,7 +30,6 @@
                             <span class="font-bold text-red-500"> *</span>
                         </div>
                         @Html.TextBoxFor(m => m.Name, new { @class = "blueBox w-full p-2.5 text-sm", placeholder = "Nguyễn Văn A", required = "required" })
-                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-red-500 text-sm" })
                     </div>
 
                     <div class="w-full">
@@ -39,7 +38,6 @@
                             <span class="font-bold text-red-500"> *</span>
                         </div>
                         @Html.TextBoxFor(m => m.Email, new { @class = "blueBox w-full p-2.5 text-sm", placeholder = "abc@gmail.com", required = "required" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-red-500 text-sm" })
                     </div>
 
                     <div class="w-full">
@@ -48,7 +46,6 @@
                             <span class="font-bold text-red-500">*</span>
                         </div>
                         @Html.TextAreaFor(m => m.Content, 4, 50, new { @class = "blueBox w-full p-2.5 text-sm", placeholder = "Nhập nội dung bạn muốn đóng góp...", required = "required" })
-                        @Html.ValidationMessageFor(m => m.Content, "", new { @class = "text-red-500 text-sm" })
                     </div>
                     <div class="flex w-full justify-center">
                         @Html.HiddenFor(m => m.Token)

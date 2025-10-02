@@ -1,0 +1,67 @@
+﻿@model NavBarViewModel
+@{
+    var currentController = ViewBag.CurrentController as string ?? string.Empty;
+    var currentAction = ViewBag.CurrentAction as string ?? string.Empty;
+}
+<div style="display: none;">
+    <!-- Toggle Menu (For Mobile Nav) -->
+    <button type="button" x-click="open = !open" aria-label="toggleMenu"
+            class="rounded p-1.5 transition duration-300 hover:bg-gray-200 md:hidden dark:hover:bg-gray-700">
+        <svg width="20" height="20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+             viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+    </button>
+    <!-- Mobile Nav -->
+    <nav x-show="open" x-transition
+         class="fixed inset-0 left-0 top-0 z-30 flex h-full w-full items-center justify-center
+                    bg-gray-100 opacity-95 dark:bg-gray-800">
+
+        <div class="relative flex flex-col space-y-4 px-3 text-lg font-semibold sm:px-6 xl:px-0">
+
+            <!-- Close button -->
+            <button x-click="open = false"
+                    class="right-[-13rem] absolute -top-10 w-full text-xl text-gray-800
+                                           transition duration-300 hover:text-red-600 dark:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                     class="bi bi-x" viewBox="0 0 16 16">
+                    <path
+                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+            </button>
+
+            <!-- Links -->
+            <a href="@Url.Action("Index", "Home")"
+               class="w-full rounded-lg px-8 py-4 text-center transition duration-300
+                          hover:bg-gray-200 dark:hover:bg-gray-700
+                          @(currentController == "Home" && currentAction == "Index" ? "bg-gray-300 dark:bg-red-700" : "")"
+               x-click="open = false">
+                @Model.Links.Home
+            </a>
+
+            <a href="@Url.Action("Index", "Project")"
+               class="w-full rounded-lg px-8 py-4 text-center transition duration-300
+                          hover:bg-gray-200 dark:hover:bg-gray-700
+                          @(currentController == "Home" && currentAction == "Index" ? "bg-gray-300 dark:bg-red-700" : "")"
+               x-click="open = false">
+                @Model.Links.Project
+            </a>
+
+            <a href="@Url.Action("Index", "Tool")"
+               class='w-full rounded-lg px-8 py-4 text-center transition duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 @(currentController == "Home" && currentAction == "Index" ? "bg-gray-300 dark:bg-red-700" : "")'
+               x-click="open = false">
+                @Model.Links.Tool
+            </a>
+
+            <a href="@Url.Action("Index", "CV")"
+               class="w-full rounded-lg px-8 py-4 text-center transition duration-300
+                          hover:bg-gray-200 dark:hover:bg-gray-700
+                          @(currentController == "Home" && currentAction == "Index" ? "bg-gray-300 dark:bg-red-700" : "")"
+               x-click="open = false">
+                @Model.Links.CV
+            </a>
+        </div>
+    </nav>
+
+</div>

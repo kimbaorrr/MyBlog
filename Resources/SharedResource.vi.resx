@@ -375,4 +375,7 @@
   <data name="footer.copyright" xml:space="preserve">
     <value>Tất cả các quyền được bảo lưu</value>
   </data>
+  <data name="valid.required" xml:space="preserve">
+    <value>không được để trống !</value>
+  </data>
 </root>

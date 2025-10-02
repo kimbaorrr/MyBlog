@@ -1,7 +1,4 @@
-﻿@{
-    var currentLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -15,7 +12,7 @@
     <link rel="manifest" href="/favicon/site.webmanifest">
     <meta name="description" content="Blog của Nguyễn Kim Bảo">
     <meta name="author" content="Nguyễn Kim Bảo">
-    <meta name="google-site-verification" content="TPeqyGD_85PERvELnMqMIPfLoseHA_Jbb0gKQKdbmq8" />
+    <meta name="google-site-verification" content="TPeqyGD_85PERvELnMqMIPfLoseHA_Jbb0gKQKdbmq8"/>
     <meta property="og:title" content="Nguyễn Kim Bảo">
     <meta property="og:description" content="Blog của Nguyễn Kim Bảo">
     <meta property="og:image" content="/favicon/android-chrome-512x512.png">
@@ -29,40 +26,38 @@
     <meta name="DC.description" content="Blog của Nguyễn Kim Bảo">
     <meta name="DC.language" content="vi">
     <meta name="robots" content="index, follow">
-    <meta name="color-scheme" content="dark">
+    <meta name="color-scheme" content="dark light">
     <link rel="canonical" href="https://baoit.site">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/twemoji-awesome.min.css">
-    <link rel="stylesheet" href="~/css/output.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/output.css" asp-append-version="true"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body class="min-h-screen max-w-full overflow-x-hidden bg-white text-black antialiased dark:bg-dark dark:text-white">
-    <!--Navbar-->
-    <nav>
-        @await Component.InvokeAsync("NavBar")
-    </nav>
+<!--Navbar-->
+<nav>
+    @await Component.InvokeAsync("NavBar", new { viewName = "Default" })
+</nav>
 
-    <div class="mx-auto max-w-3xl px-3 sm:px-6 md:max-w-4xl xl:max-w-5xl xl:px-0">
-        <div class="flex flex-col justify-between">
-            <!--Main View-->
-            <main class="z-0 min-h-[85vh] max-w-full">
-                <!--Render Body-->
-                @RenderBody()
-            </main>
+<div class="mx-auto max-w-3xl px-3 sm:px-6 md:max-w-4xl xl:max-w-5xl xl:px-0">
+    <div class="flex flex-col justify-between">
+        <!--Main View-->
+        <main class="z-0 min-h-[85vh] max-w-full">
+            <!--Render Body-->
+            @RenderBody()
+        </main>
 
-            <!--Footer-->
-            @await Component.InvokeAsync("Footer")
-        </div>
+        <!--Footer-->
+        @await Component.InvokeAsync("Footer")
     </div>
+</div>
 
-    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </body>
 
 </html>
-
-

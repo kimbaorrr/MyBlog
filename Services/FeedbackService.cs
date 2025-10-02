@@ -16,11 +16,7 @@ namespace MyBlog.Services
             _feedbackRepository = feedbackRepository;
             _captchaService = captchaService;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="newFeedbackViewModel"></param>
-        /// <returns>(Trạng thái, nội dung lỗi nếu có)</returns>
+        
         public async Task<(bool, string)> NewFeedbackViewModel(FeedbackViewModel newFeedbackViewModel)
         {
             HCaptchaResponse response = await this._captchaService.ValidateHCaptcha(newFeedbackViewModel.Token);
@@ -34,7 +30,7 @@ namespace MyBlog.Services
                     CreatedAt = DateTime.UtcNow
                 };
                 this._feedbackRepository.AddFeedback(feedback);
-                return (true, string.Empty);
+                return (true, "Đã ghi nhận ý kiến đóng góp của bạn.\nCảm ơn bạn rất nhiều !");
             }
             return (false, string.Join(",", response!.ErrorCodes));
             

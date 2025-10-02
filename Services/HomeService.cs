@@ -73,11 +73,6 @@ namespace MyBlog.Services
             };
         }
 
-        public string GetClock()
-        {
-            return DateTime.Now.ToString("HH:mm");
-        }
-
 
 
     }

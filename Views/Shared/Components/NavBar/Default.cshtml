@@ -1,216 +1,27 @@
 ﻿@{
-    var navBarViewModel = new NavBarViewModel()
-            {
-                Links =
-                {
-                    Contact = localizer["nav.contact"],
-                    CV = localizer["nav.cv"],
-                    Home = localizer["nav.home"],
-                    Project = localizer["nav.project"],
-                    Tool = localizer["nav.tool"]
-
-                },
-                LogoUrl = "/imgs/logo.png"
-            };
-    var currentController = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
-    var currentAction = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
-    var currentLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+    var navBarViewModel = new NavBarViewModel
+    {
+        Links =
+        {
+            Contact = localizer["nav.contact"],
+            CV = localizer["nav.cv"],
+            Home = localizer["nav.home"],
+            Project = localizer["nav.project"],
+            Tool = localizer["nav.tool"]
+        },
+        LogoUrl = "/imgs/logo.png"
+    };
+    var currentLang = ViewBag.CurrentLang as string ?? string.Empty;
 }
 <!--Wide Screen Nav-->
-<nav class="sticky top-0 z-30 overflow-hidden bg-white/75 py-3 backdrop-blur dark:bg-dark supports-backdrop-blur:bg-white/95">
-    <div class="mx-auto flex max-w-3xl items-center justify-between px-3 text-sm sm:px-6 md:max-w-4xl xl:max-w-5xl xl:px-0">
-        <!-- Left Wide Screen Nav -->
-        <a href="@Url.Action("Index", "Home")" class="flex items-center">
-            <img alt="Logo" src="@navBarViewModel.LogoUrl" loading="lazy" width="50" height="45" decoding="async"
-                 class="mr-3 rounded-full transition duration-300 hover:blur-[2px]" />
-            <p class="hidden font-semibold dark:text-white md:block">@navBarViewModel.Brand</p>
-        </a>
-        <!-- Right Wide Screen Nav -->
-        <div class="flex items-center gap-4">
-            <!-- Link Nav -->
-            <div class="hidden text-sm font-semibold md:flex md:flex-row md:space-x-3 xl:space-x-1.5">
-                <ul class="flex flex-row space-x-3">
-                    <li>
-                        <a href="@Url.Action("Index","Home")"
-                           class="rounded px-3 py-1.5 transition duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 @(currentController == "Home" && currentAction == "Index" ? "bg-gray-300 dark:bg-red-700" : "")">
-                            @navBarViewModel.Links.Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index","Project")"
-                           class="rounded px-3 py-1.5 transition duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 @(currentController == "Project" && currentAction == "Index" ? "bg-gray-300 dark:bg-red-700" : "")">
-                            @navBarViewModel.Links.Project
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index","Tool")"
-                           class="rounded px-3 py-1.5 transition duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 @(currentController == "Tool" && currentAction == "Index" ? "bg-gray-300 dark:bg-red-700" : "")">
-                            @navBarViewModel.Links.Tool
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index","CV")"
-                           class="rounded px-3 py-1.5 transition duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 @(currentController == "CV" && currentAction == "Index" ? "bg-gray-300 dark:bg-red-700" : "")">
-                            @navBarViewModel.Links.CV
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="hidden items-center gap-1 md:flex">
-                <span class="cursor-default text-gray-400">|</span>
-            </div>
-
-            <!-- Icon Nav -->
-            <div class="flex items-center gap-1">
-                <!--Go to Admin Page-->
-                <a href="@Url.Action("Index", "Home", new {area = "Admin"})" aria-label="adminPage" target="_blank"
-                   class="rounded p-1.5 transition duration-300 hover:bg-gray-200 dark:hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="lucide lucide-log-in lucide-log-in-icon">
-                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                        <polyline points="10 17 15 12 10 7" />
-                        <line x1="15" x2="3" y1="12" y2="12" />
-                    </svg>
-                </a>
-                <!-- Toggle Modal -->
-                <button type="button" aria-label="feedbackModal" id="feedbackModalBtn"
-                        class="rounded p-1.5 transition duration-300 hover:bg-gray-200 dark:hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="lucide lucide-message-circle-question">
-                        <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                        <path d="M12 17h.01" />
-                    </svg>
-                </button>
-
-
-                <!-- Change Theme -->
-                <button type="button" aria-label="changeTheme" id="changeThemeBtn"
-                        class="rounded p-1.5 transition duration-300 hover:bg-gray-200 dark:hover:bg-gray-700">
-
-                    <!-- Icon Sun -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                         fill="none" name="light"
-                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                         class="lucide lucide-sun theme-icon">
-                        <circle cx="12" cy="12" r="4"></circle>
-                        <path d="M12 2v2"></path>
-                        <path d="M12 20v2"></path>
-                        <path d="m4.93 4.93 1.41 1.41"></path>
-                        <path d="m17.66 17.66 1.41 1.41"></path>
-                        <path d="M2 12h2"></path>
-                        <path d="M20 12h2"></path>
-                        <path d="m6.34 17.66-1.41 1.41"></path>
-                        <path d="m19.07 4.93-1.41 1.41"></path>
-                    </svg>
-
-                    <!-- Icon Moon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                         fill="none" name="dark"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                         class="lucide lucide-moon theme-icon">
-                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-                    </svg>
-                </button>
-
-                <!-- Change Language -->
-                <button id="changeLanguageBtn" type="button"
-                        class="relative h-[1.88rem] w-[1.88rem] rounded p-1.5 transition duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-                        aria-label="changeLanguage">
-
-                    @if (currentLang == "vi")
-                    {
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Flag_of_Vietnam-Animated.gif"
-                             alt="Vietnamese" loading="lazy"
-                             class="max-h-full max-w-full object-contain" />
-                    }
-                    else
-                    {
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Animated-Flag-USA-2.gif"
-                             alt="English" loading="lazy"
-                             class="max-h-full max-w-full object-contain" />
-                    }
-                </button>
-
-                <!-- Clock -->
-                <div class="cursor-default p-1.5 text-sm font-semibold">@DateTime.Now.ToString("HH:mm")</div>
-
-
-            </div>
-
-        </div>
-    </div>
-</nav>
-
+@await Component.InvokeAsync("NavBar", new { viewName = "WideScreenNav", model = navBarViewModel })
 
 <!--Feedback Modal-->
 @await Component.InvokeAsync("FeedbackModal")
 
 
 <!-- Mobile Nav -->
-<div style="display: none;">
-    <!-- Toggle Menu (For Mobile Nav) -->
-    <button type="button" x-click="open = !open" aria-label="toggleMenu"
-            class="rounded p-1.5 transition duration-300 hover:bg-gray-200 md:hidden dark:hover:bg-gray-700">
-        <svg width="20" height="20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-             viewBox="0 0 17 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M1 1h15M1 7h15M1 13h15" />
-        </svg>
-    </button>
-    <!-- Mobile Nav -->
-    <nav x-show="open" x-transition
-         class="fixed inset-0 left-0 top-0 z-30 flex h-full w-full items-center justify-center
-                    bg-gray-100 opacity-95 dark:bg-gray-800">
-
-        <div class="relative flex flex-col space-y-4 px-3 text-lg font-semibold sm:px-6 xl:px-0">
-
-            <!-- Close button -->
-            <button x-click="open = false"
-                    class="right-[-13rem] absolute -top-10 w-full text-xl text-gray-800
-                                           transition duration-300 hover:text-red-600 dark:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                     class="bi bi-x" viewBox="0 0 16 16">
-                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
-                </svg>
-            </button>
-
-            <!-- Links -->
-            <a href="@Url.Action("Index","Home")"
-               class="w-full rounded-lg px-8 py-4 text-center transition duration-300
-                          hover:bg-gray-200 dark:hover:bg-gray-700
-                          @(currentController == "Home" && currentAction == "Index" ? "bg-gray-300 dark:bg-red-700" : "")"
-               x-click="open = false">
-                @navBarViewModel.Links.Home
-            </a>
-
-            <a href="@Url.Action("Index","Project")"
-               class="w-full rounded-lg px-8 py-4 text-center transition duration-300
-                          hover:bg-gray-200 dark:hover:bg-gray-700
-                          @(currentController == "Home" && currentAction == "Index" ? "bg-gray-300 dark:bg-red-700" : "")"
-               x-click="open = false">
-                @navBarViewModel.Links.Project
-            </a>
-
-            <a href="@Url.Action("Index","Tool")"
-               class='w-full rounded-lg px-8 py-4 text-center transition duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 @(currentController == "Home" && currentAction == "Index" ? "bg-gray-300 dark:bg-red-700" : "")' x-click="open = false">
-                @navBarViewModel.Links.Tool
-            </a>
-
-            <a href="@Url.Action("Index","CV")"
-               class="w-full rounded-lg px-8 py-4 text-center transition duration-300
-                          hover:bg-gray-200 dark:hover:bg-gray-700
-                          @(currentController == "Home" && currentAction == "Index" ? "bg-gray-300 dark:bg-red-700" : "")"
-               x-click="open = false">
-                @navBarViewModel.Links.CV
-            </a>
-        </div>
-    </nav>
-
-</div>
+@await Component.InvokeAsync("NavBar", new { viewName = "MobileNav", model = navBarViewModel })
 
 
 <script>
@@ -225,7 +36,7 @@
                 $("#changeThemeBtn svg[name='light']").show();
                 $("#changeThemeBtn svg[name='dark']").hide();
             }
-            
+
         }
 
         $("#changeThemeBtn").on("click", () => {
@@ -243,7 +54,7 @@
             $.ajax({
                 url: '@Url.Action("SetLanguage", "Language")',
                 type: "post",
-                data: { newLang: newLang },
+                data: {newLang: newLang},
                 success: function () {
                     location.reload();
                 }
@@ -280,15 +91,14 @@
                 url: $form.attr('action'),
                 type: 'POST',
                 data: formData,
-                dataType: 'json',
                 success: function (response) {
-                    alert(response.value.message);
+                    alert(response.message);
                     $form[0].reset();
                     hcaptcha.reset();
                 },
                 error: function (xhr) {
                     if (xhr.responseJSON && xhr.responseJSON.message) {
-                        alert(xhr.responseJSON.value.message);
+                        alert(xhr.responseJSON.message);
                     } else {
                         alert('Có lỗi xảy ra, vui lòng thử lại.');
                     }

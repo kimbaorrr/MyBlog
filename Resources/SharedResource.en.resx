@@ -375,4 +375,7 @@
   <data name="footer.copyright" xml:space="preserve">
     <value>All rights reserved.</value>
   </data>
+  <data name="valid.required" xml:space="preserve">
+    <value>do not empty !</value>
+  </data>
 </root>

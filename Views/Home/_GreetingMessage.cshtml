@@ -1,13 +1,11 @@
-﻿@{
-    if (DateTime.Now.Hour > 6 && DateTime.Now.Hour < 9)
-    {
-        <div class="flex items-center justify-center">
-            <div class="relative overflow-hidden rounded-lg bg-white p-4 shadow-md dark:bg-gray-800">
-                <div class="border-animation absolute inset-0 rounded-lg"></div>
-                <div class="relative z-50 text-sm font-medium text-black dark:text-white">
-                    @localizer["home_body.greeting.day"]
-                </div>
+﻿@if (DateTime.Now.Hour >= 6 && DateTime.Now.Hour < 9)
+{
+    <div class="flex items-center justify-center">
+        <div class="relative overflow-hidden rounded-lg bg-white p-4 shadow-md dark:bg-gray-800">
+            <div class="border-animation absolute inset-0 rounded-lg"></div>
+            <div class="relative z-50 text-sm font-medium text-black dark:text-white">
+                @localizer["home_body.greeting.day"]
             </div>
         </div>
-    }
+    </div>
 }

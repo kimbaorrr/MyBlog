@@ -3,7 +3,7 @@
 namespace MyBlog.Controllers
 {
     [Route("cv")]
-    public class CVController : Controller
+    public class CVController : BaseController
     {
         /// <summary>
         /// 

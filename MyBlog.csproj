@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCore.Identity.Mongo" Version="10.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="9.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.9" />
@@ -33,6 +34,15 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
+  
+  <ItemGroup>
+  <UpToDateCheckBuilt Include="wwwroot/css/site.css" Set="Css" />
+  <UpToDateCheckBuilt Include="tailwind.config.js" Set="Css" />
+</ItemGroup>
+
+<Target Name="Tailwind" BeforeTargets="Build">
+  <Exec Command="npm run build:css" />
+</Target>
 
   <ItemGroup>
     <None Include=".github\workflows\myblog-build.yaml" />

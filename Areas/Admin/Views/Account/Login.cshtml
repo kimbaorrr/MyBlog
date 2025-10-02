@@ -1,0 +1,61 @@
+﻿@model AccountLoginViewModel;
+
+@using (Html.BeginForm("Login", "Account", new { area = "Admin" }, FormMethod.Post, true, new { @class = "space-y-6" }))
+{
+    @Html.AntiForgeryToken()
+
+    <!--Login Form-->
+    @Html.TextBoxFor(m => m.Username, new {
+    @placeholder = "Tên đăng nhập",
+        @class = "w-full border-b-2 border-gray-300 bg-transparent p-2 duration-500 focus:border-blue-500 focus:outline-none focus:ring-0"
+    })
+
+    @Html.PasswordFor(m => m.Password, new {
+            @placeholder = "Mật khẩu",
+            @class = "w-full border-b-2 border-gray-300 bg-transparent p-2 duration-500 focus:border-blue-500 focus:outline-none focus:ring-0"
+        })
+
+<!-- hCaptcha -->
+<div class="w-full">
+    <div class="h-captcha w-full" data-sitekey="db68756e-31f2-4612-a94a-9fe8796a2b2e"></div>
+</div>
+
+<!--Action Buttons-->
+<button type="submit"
+        class="blueBtn w-full rounded px-4 py-2 font-semibold text-white">
+    Đăng nhập
+</button>
+}
+
+<!-- Script hCaptcha -->
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
+<script>
+    $(document).ready(function () {
+        $("form").on("submit", function (e) {
+            e.preventDefault();
+
+            let form = $(this);
+            let token = $("[name='h-captcha-response']").val();
+            let formData = form.serialize() + "&Token=" + encodeURIComponent(token);
+
+            $.ajax({
+                url: form.attr("action"),
+                type: form.attr("method"),
+                data: formData,
+                success: function (response) {
+                    if (response.success) {
+                        window.location.href = response.data.redirectUrl;
+                    } 
+                    else 
+                    {
+                        alertMessage(response.message);
+                        hcaptcha.reset();
+                        $form[0].reset();
+                        $form.find("input:first").focus();
+                    }
+                }
+            });
+        });
+    });
+</script>

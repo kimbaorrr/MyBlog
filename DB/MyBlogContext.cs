@@ -6,13 +6,11 @@ namespace MyBlog.DB
     public class MyBlogContext
     {
         private readonly IMongoDatabase _database;
-        private readonly IConfiguration _configuration;
 
         public MyBlogContext(IConfiguration configuration)
         {
-            _configuration = configuration;
-            MongoClient client = new MongoClient(this._configuration["Database:MongoDB:Url"]);
-            _database = client.GetDatabase(this._configuration["Database:MongoDB:DatabaseName"]);
+            MongoClient client = new MongoClient(configuration["Database:MongoDB:Url"]);
+            _database = client.GetDatabase("my_blog");
         }
 
         public IMongoCollection<Project> Projects => this._database.GetCollection<Project>("projects");

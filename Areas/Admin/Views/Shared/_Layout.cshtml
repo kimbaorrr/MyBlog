@@ -1,27 +1,31 @@
 ﻿<html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <title></title>
     <meta http-equiv="Content-Language" content="vi">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <link href="https://fonts.bunny.net/css?family=cabin:400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/output.css" asp-append-version="true" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </head>
 <body>
-    <div class="flex h-screen items-center justify-center bg-dark">
-        <div class="w-11/12 max-w-full space-y-6 rounded-lg bg-white p-6 shadow md:w-3/12">
+    @RenderBody()
 
-            <!-- Ảnh -->
-            <div class="mx-auto h-32 w-32">
-                <img src="https://cdn-icons-png.freepik.com/512/4661/4661334.png"
-                     class="h-full w-full object-contain" />
-            </div>
 
-            <!-- Form -->
-            @RenderBody()
-        </div>
-    </div>
-
-    
+    <script>
+        function alertMessage(message, type) {
+           Toastify({
+              text: message,
+              className: type,
+              duration: 3000,
+              close: true,
+              position: "center"
+            }).showToast();
+        }
+    </script>
 </body>
+
 </html>

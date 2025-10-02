@@ -1,10 +1,14 @@
+using AspNetCore.Identity.Mongo;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using MyBlog.DB;
+using MyBlog.DB.Entities;
 using MyBlog.Repositories;
 using MyBlog.Repositories.Interfaces;
 using MyBlog.Services;
 using MyBlog.Services.Interfaces;
 using System.Globalization;
-using Microsoft.AspNetCore.Localization;
-using MyBlog.DB;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +24,24 @@ builder.Services.AddHttpClient();
 // DB Context
 builder.Services.AddScoped<MyBlogContext>();
 
+// Identity Auth
+builder.Services.AddIdentityMongoDbProvider<ApplicationUser, ApplicationRole>(
+identityOptions =>
+{
+    
+},
+mongoOptions =>
+{
+    mongoOptions.ConnectionString = builder.Configuration["Database:MongoDB:Url"] ?? string.Empty;
+    mongoOptions.MigrationCollection = "auths";
+});
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/admin/auth/login";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+
+});
+
 // Repositories
 builder.Services.AddScoped<IIntroductionRepository, IntroductionRepository>();
 builder.Services.AddScoped<IPersonalRepository, PersonalRepository>();
@@ -34,8 +56,12 @@ builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<IToolService, ToolService>();
 builder.Services.AddScoped<IFeedbackService, FeedbackService>();
 builder.Services.AddScoped<ICaptchaService, CaptchaService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
 
 var app = builder.Build();
+
+
+
 
 // Multi Languages
 CultureInfo viCulture = new CultureInfo("vi");
@@ -55,6 +81,43 @@ var localizationOptions = new RequestLocalizationOptions()
 
 app.UseRequestLocalization(localizationOptions);
 
+
+// For testing only
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+
+    using var scope = app.Services.CreateScope();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+
+    var adminEmail = "admin@example.com";
+    var adminUser = await userManager.FindByEmailAsync(adminEmail);
+
+    if (adminUser == null)
+    {
+        adminUser = new ApplicationUser
+        {
+            UserName = adminEmail,
+            Email = adminEmail,
+            EmailConfirmed = true
+        };
+
+        var result = await userManager.CreateAsync(adminUser, "1234");
+        if (result.Succeeded)
+        {
+            await userManager.ResetAuthenticatorKeyAsync(adminUser);
+            var key = await userManager.GetAuthenticatorKeyAsync(adminUser);
+
+            logger.LogInformation("======================================");
+            logger.LogInformation("Admin account: {Email}", adminEmail);
+            logger.LogInformation("Admin password: 1234");
+            logger.LogInformation("Admin 2FA key: {Key}", key);
+            logger.LogInformation("======================================");
+        }
+    }
+}
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -64,7 +127,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.MapAreaControllerRoute(
     areaName: "Admin",
@@ -76,6 +141,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
-
-app.Run();
+await app.RunAsync();
